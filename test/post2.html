@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Home Page</title>
+<style>
+
+body{
+
+  }
+
+#p1{ color:red;font-size: 30px;
+
+color:	#F5F5F5;
+	text-shadow: 4px 4px black;}
+
+#p2{ color:red;font-size: 30px;
+
+color:	#F5F5F5;
+	text-shadow: 4px 4px black;}
+
+.column{
+	margin:50px;
+	margin-left: 150px;
+	float: left;
+	width: 30%;
+	height: 300px;
+	color:	#F5F5F5;
+	text-shadow: 4px 4px black;
+}
+.row:after{
+	content:"";
+	display: table;
+	clear: both;
+	color:	#F5F5F5;
+	text-shadow: 4px 4px black;
+}
+.w3-bar{
+  right: 0;
+  transform:translateX(70%);
+}
+tr{
+  width: 30%;
+}
+
+h1{
+  margin-left: 150px;
+  margin-top: 30px;
+}
+form{
+  display: inline-block;
+  width: 80%;
+}
+input{
+margin-top: 8px;
+}
+
+.row{
+  margin-top: 20px;
+}
+#input3{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+	
+
+	<div class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left" style="display:none" id="Menu">
+  		<button onclick="closeMenu()" class="w3-bar-item w3-button w3-large">&times;</button>
+
+    <a  href = "loginhomepage.php" class="w3-bar-item w3-button w3-black "> <i>Home Page</i></a>
+	 	<a  href = "/personal" class="w3-bar-item w3-button w3-black "> <i>Personal Page</i></a>
+    <a  href = "post.html" class="w3-bar-item w3-button w3-black "><i> Upload</i> </a>
+    <a  href = "/chat" class="w3-bar-item w3-button w3-black "><i> Chat Room</i> </a>
+    <a  href = "/search" class="w3-bar-item w3-button w3-black "><i> Search </i></a>
+    <a  href = "/contactus" class="w3-bar-item w3-button w3-black "><i> Contact Us</i></a>
+    <a  href = "logout.php" class="w3-bar-item w3-button w3-black "><i> Logout</i></a>
+
+	</div>
+
+<div id="main">
+
+<div class="w3-black">
+  <button id="openNav" class="w3-button w3-black w3-xlarge w3-left" onclick="openMenu()">&#9776;</button>
+  <div class="w3-container">
+    <i>Let start uploading your post! <i>
+
+  <div class="w3-container w3-center"">
+	<div class="w3-bar">
+    
+    <a  href = "loginhomepage.php" class="w3-bar-item w3-button w3-black "> <i>Home Page</i></a>
+	 <a  href = "/personal" class="w3-bar-item w3-button w3-black w3-round-large"> <i>Personal Page</i></a>
+   <a  href = "post.html" class="w3-bar-item w3-button w3-black w3-round-large"><i> Upload</i> </a>
+   <a  href = "/chat" class="w3-bar-item w3-button w3-black w3-round-large"><i> Chat Room</i> </a>
+   <a  href = "/search" class="w3-bar-item w3-button w3-black w3-round-large"><i> Search </i></a>
+   <a  href = "/contactus" class="w3-bar-item w3-button w3-black w3-round-large"><i> Contact Us</i></a>
+   <a  href = "logout.php" class="w3-bar-item w3-button w3-black "><i> Logout</i></a>
+	</div>
+	</div>
+  </div>
+</div>
+
+
+  <div>
+      <h1>Upload Post</h1>
+  </div>
+
+    <div style="width: 70%; height:100%; overflow:auto;float: left;margin-left: 150px; margin-top: 20px; margin-bottom: 20px; position:relative;">
+          <form name="myForm" style="font-size:1.3vw;" action = "/register" method = "POST" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="region">Region:</label>
+        </div>
+        <div class="col-75">
+        <select required name = "region">
+            <option value = "Central and Western"> Central and Western </option>
+            <option value = "Eastern"> Eastern </option>
+            <option value = "Southern"> Southern </option>
+            <option value = "Sham Shui Po"> Sham Shui Po </option>
+            <option value = "Kowloon City"> Kownloon City </option>
+            <option value = "Kwun Tong"> Kwun Tong </option>
+            <option value = "Wong Tai Sin"> Wong Tai Sin </option>
+            <option value = "Yau Tsim Mong"> Yau Tsim Mong </option>
+            <option value = "Islands"> Islands </option>
+            <option value = "Kwai Tsing"> Kwai Tsing </option>
+            <option value = "North"> North </option>
+            <option value = "Sai Kung"> Sai Kung </option>
+            <option value = "Sha Tin"> Sha Tin </option>
+            <option value = "Tai Po"> Tai Po </option>
+            <option value = "Tsuen Wan"> Tsuen Wan </option>
+            <option value = "Tuen Mun"> Tuen Mun </option>
+            <option value = "Yuen Long"> Yuen Long </option>
+        </select> 
+        </div>
+  </div>
+
+        <div class="row">
+      <div class="col-25">
+        <label for="el">Education Level:</label>
+        </div>
+        <div class="col-75">
+        <select required id = "option1" name = "educationLevel">   
+          <option value = "Secondary"> Secondary School or above </option>
+            <option value = "University"> University or above </option>
+            <option value = "Phd"> Phd or above </option>
+            <option value = "Teacher"> Teacher </option>                  
+        </select>
+        </div>
+  </div>
+
+
+        <div class="row">
+        <div class="col-25">
+        <label for="subject">Subject: </label>
+        </div>
+        <div class="col-75">
+        <input id="input1" type="checkbox" name="subject" value="Chinese" class="w3-check"> Chinese &#8194 &#8194
+        <input id="input1" type="checkbox" name="subject" value="English" class="w3-check"> English &#8194 &#8194
+        <input id="input1" type="checkbox" name="subject" value="Maths" class="w3-check"> Maths &#8194 &#8194
+        <input id="input1" type="checkbox" name="subject" value="LS" class="w3-check"> LS <br>
+        <input id="input1" type="checkbox" name="subject" value="Physics" class="w3-check"> Physics &#8194 &#8194
+        <input id="input1" type="checkbox" name="subject" value="Chemistry" class="w3-check"> Chemistry &#8194 &#8194
+        <input id="input1" type="checkbox" name="subject" value="Biology" class="w3-check"> Biology <br>
+        <input id="input1" type="checkbox" name="subject" value="Chinese History" class="w3-check"> Chinese History &#8194 &#8194
+        <input id="input1" type="checkbox" name="subject" value="History" class="w3-check"> History &#8194 &#8194
+        <input id="input1" type="checkbox" name="subject" value="Economy" class="w3-check"> Economy &#8194 &#8194
+        <input id="input1" type="checkbox" name="subject" value="BAFS" class="w3-check"> BAFS 
+        </div>
+  </div>
+
+        <br>
+
+         <div class="row">
+        <div class="col-25">
+        <label for="subject">Time Available:</label>
+        </div>
+        <div class="col-75">
+        <input id="input1" type="checkbox" name="time" value="sunday" class="w3-check"> Sunday &#8194 &#8194
+        <input id="input1" type="checkbox" name="time" value="monday" class="w3-check"> Monday &#8194 &#8194
+        <input id="input1" type="checkbox" name="time" value="tuesday" class="w3-check"> Tuesday &#8194 &#8194
+        <input id="input1" type="checkbox" name="time" value="wednesday" class="w3-check"class="w3-check"> Wednesday <br>
+        <input id="input1" type="checkbox" name="time" value="thursday" class="w3-check"> Thursday &#8194 &#8194
+        <input id="input1" type="checkbox" name="time" value="friday" class="w3-check"> Friday &#8194 &#8194
+        <input id="input1" type="checkbox" name="time" value="saturday" class="w3-check"> Saturday &#8194 &#8194
+        </div>
+  </div>
+
+        <div class="row">
+        <div class="col-25">
+        <label for="subject"><span id ="minmax">Minimum </span>Hourly Price Requested: </label>
+        </div>
+        <div class="col-75">
+        <input type="range" name="price" min=0 max=500 step=10 id = "priceSlider">
+        <span  id="price">500</span> 
+                </div>
+    </div>
+
+        <input id="input3" type="submit" value="Upload" class="w3-btn w3-border w3-blue w3-round-large">
+
+
+    </form>
+</div>
+
+
+</div>	
+ <!--Students list from database-->
+
+
+<script>
+function openMenu() {
+  document.getElementById("main").style.marginLeft = "15%";
+  document.getElementById("Menu").style.width = "15%";
+  document.getElementById("Menu").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function closeMenu() {
+    document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("Menu").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+
+
+</script>
+<script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
+<script>
+w3CodeColor();
+</script>
+
+</body>
+
+
+</html>

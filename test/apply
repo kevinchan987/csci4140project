@@ -1,0 +1,8 @@
+<?php
+	include('database_connection.php');
+	$pid = $_GET['pid'];
+	$type = $_GET['type'];
+
+
+
+?>

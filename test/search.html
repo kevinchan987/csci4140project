@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="jquery-3.4.0.min.js"></script>
+<title>Home Page</title>
+<style>
+
+body{
+
+  }
+
+#p1{ color:red;font-size: 30px;
+
+color:	#F5F5F5;
+	text-shadow: 4px 4px black;}
+
+#p2{ color:red;font-size: 30px;
+
+color:	#F5F5F5;
+	text-shadow: 4px 4px black;}
+
+.column{
+	margin:50px;
+	margin-left: 150px;
+	float: left;
+	width: 30%;
+	height: 300px;
+	color:	#F5F5F5;
+	text-shadow: 4px 4px black;
+}
+.row:after{
+	content:"";
+	display: table;
+	clear: both;
+	color:	#F5F5F5;
+	text-shadow: 4px 4px black;
+}
+.w3-bar{
+  right: 0;
+  transform:translateX(60%);
+}
+tr{
+  width: 30%;
+}
+
+h1{
+  margin-left: 150px;
+  margin-top: 30px;
+}
+form{
+  display: inline-block;
+  width: 50%;
+}
+input{
+margin-top: 8px;
+}
+
+.row{
+  margin-top: 20px;
+}
+#input3{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+	
+
+	<div class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left" style="display:none" id="Menu">
+  		<button onclick="closeMenu()" class="w3-bar-item w3-button w3-large">&times;</button>
+
+    <a  href = "loginhomepage.php" class="w3-bar-item w3-button w3-black "><i class="fa fa-home"></i> <i>Home Page</i></a>
+	 	<a  href = "personalpage.php" class="w3-bar-item w3-button w3-black "> <i>Personal Page</i></a>
+    <a  href = "post.html" class="w3-bar-item w3-button w3-black "><i> Upload</i> </a>
+    <a  href = "/chat" class="w3-bar-item w3-button w3-black "><i> Chat Room</i> </a>
+    <a  href = "search.html" class="w3-bar-item w3-button w3-black "><i> Search </i></a>
+    <a  href = "contactus.php" class="w3-bar-item w3-button w3-black "><i> Contact Us</i></a>
+    <a  href = "logout.php" class="w3-bar-item w3-button w3-black "><i> Logout</i></a>
+
+	</div>
+
+<div id="main">
+
+<div class="w3-black">
+  <button id="openNav" class="w3-button w3-black w3-xlarge w3-left" onclick="openMenu()">&#9776;</button>
+  <div class="w3-container">
+    <i>Let start searching the posts! <i>
+
+  <div class="w3-container w3-center"">
+	<div class="w3-bar">
+    
+  
+
+  <a  href = "loginhomepage.php" class="w3-bar-item w3-button w3-black "><i class="fa fa-home"></i></a>
+	 <a  href = "personalpage.php" class="w3-bar-item w3-button w3-black w3-round-large"> <i>Personal Page</i></a>
+   <a  href = "post.html" class="w3-bar-item w3-button w3-black w3-round-large"><i> Upload</i> </a>
+   <a  href = "/chat" class="w3-bar-item w3-button w3-black w3-round-large"><i> Chat Room</i> </a>
+   <a  href = "search.html" class="w3-bar-item w3-button w3-black w3-round-large"><i> Search </i></a>
+   <a  href = "contactus.php" class="w3-bar-item w3-button w3-black w3-round-large"><i> Contact Us</i></a>
+   <a  href = "logout.php" class="w3-bar-item w3-button w3-black "><i> Logout</i></a>
+	</div>
+	</div>
+  </div>
+</div>
+
+
+  <div>
+      <h1>Search Post</h1>
+  </div>
+
+    <div style="width: 45%; height:100%; overflow:auto;float: left;margin-left: 40px; margin-top: 20px; margin-bottom: 20px; position:relative; float: left;">
+          <form name="myForm" style="font-size:1vw; width: 90%;" action = "post.php" method = "POST" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+
+     <div class="row">
+      <div class="col-25">
+        <label for="el">Target Post:</label>
+        </div>
+        <div class="col-75">
+        <select required id = "ioption" name = "identity">   
+          <option value = "tutor"> Tutor </option>
+            <option value = "student"> Student </option>               
+        </select>
+      </div>
+ 
+
+  </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="region">Region:</label>
+        </div>
+        <div class="col-75">
+        <select required name = "region">
+          <option value = "">All </option>
+            <option value = "Central and Western"> Central and Western </option>
+            <option value = "Eastern"> Eastern </option>
+            <option value = "Southern"> Southern </option>
+            <option value = "Sham Shui Po"> Sham Shui Po </option>
+            <option value = "Kowloon City"> Kownloon City </option>
+            <option value = "Kwun Tong"> Kwun Tong </option>
+            <option value = "Wong Tai Sin"> Wong Tai Sin </option>
+            <option value = "Yau Tsim Mong"> Yau Tsim Mong </option>
+            <option value = "Islands"> Islands </option>
+            <option value = "Kwai Tsing"> Kwai Tsing </option>
+            <option value = "North"> North </option>
+            <option value = "Sai Kung"> Sai Kung </option>
+            <option value = "Sha Tin"> Sha Tin </option>
+            <option value = "Tai Po"> Tai Po </option>
+            <option value = "Tsuen Wan"> Tsuen Wan </option>
+            <option value = "Tuen Mun"> Tuen Mun </option>
+            <option value = "Yuen Long"> Yuen Long </option>
+        </select> 
+        </div>
+  </div>
+
+        <div class="row">
+      <div class="col-25">
+        <label for="el">Education Level:</label>
+        </div>
+        <div class="col-75">
+        <select required id = "option1" name = "educationLevel">   
+          <option value = "">All </option>
+          <option value = "Secondary"> Secondary School or above </option>
+            <option value = "University"> University or above </option>
+            <option value = "Phd"> Phd or above </option>
+            <option value = "Teacher"> Teacher </option>                  
+        </select>
+        </div>
+  </div>
+
+
+        <div class="row">
+        <div class="col-25">
+        <label for="subject">Subject: </label>
+        </div>
+        <div class="col-75">
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="Chinese" class="w3-check"> Chinese &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="English" class="w3-check"> English &#8194 &#8194
+        <input id="input1"onclick="sqlcomu()"  type="checkbox" name="subject[]" value="Maths" class="w3-check"> Maths &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="LS" class="w3-check"> LS <br>
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="Physics" class="w3-check"> Physics &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="Chemistry" class="w3-check"> Chemistry &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="Biology" class="w3-check"> Biology <br>
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="Chinese History" class="w3-check"> Chinese History &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="History" class="w3-check"> History &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="Economy" class="w3-check"> Economy &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="subject[]" value="BAFS" class="w3-check"> BAFS 
+        </div>
+  </div>
+
+        <br>
+
+         <div class="row">
+        <div class="col-25">
+        <label for="subject">Time Available:</label>
+        </div>
+        <div class="col-75">
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="time[]" value="sunday" class="w3-check"> Sunday &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="time[]" value="monday" class="w3-check"> Monday &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="time[]" value="tuesday" class="w3-check"> Tuesday &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="time[]" value="wednesday" class="w3-check"class="w3-check"> Wednesday <br>
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="time[]" value="thursday" class="w3-check"> Thursday &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="time[]" value="friday" class="w3-check"> Friday &#8194 &#8194
+        <input id="input1" onclick="sqlcomu()" type="checkbox" name="time[]" value="saturday" class="w3-check"> Saturday &#8194 &#8194
+        </div>
+  </div>
+
+        <div class="row">
+        <div class="col-25">
+        <label for="subject"><span id ="minmax">Maximum Hourly Price Offered: </span></label>
+        </div>
+        <div class="col-75">
+        <input type="range" name="price" min=0 max=500 step=10 id = "priceSlider">
+        <span  id="price"></span> 
+                </div>
+    </div>
+
+
+    </div>
+
+
+
+    </form>
+</div>
+<div id="txtHint">Search results will be listed here...</div>
+
+</div>	
+
+
+<script>
+function openMenu() {
+  document.getElementById("main").style.marginLeft = "15%";
+  document.getElementById("Menu").style.width = "15%";
+  document.getElementById("Menu").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function closeMenu() {
+    document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("Menu").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+
+var slider = document.getElementById("priceSlider");
+var output = document.getElementById("price");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+</script>
+<script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
+<script>
+
+
+w3CodeColor();
+
+  var ioption = document.getElementById("ioption");
+  ioption.addEventListener("change",function(){
+      var option1 = document.getElementById("option1");
+    if(ioption.value == 'tutor'){
+        option1.innerHTML='<option value = "">All </option><option value="Secondary">Secondary School or above </option><option value="University">University or above </option><option value="Phd">Phd or above </option><option value="Teacher">Teacher </option>';
+        document.getElementById('minmax').innerHTML = "Maximum Hourly Price Offered:"
+
+}else{
+        option1.innerHTML='<option value = "">All </option><option value="Primary 1">Primary 1 </option><option value="Primary 2">Primary 2 </option><option value="Primary 3">Primary 3 </option><option value="Primary 4">Primary 4 </option><option value="Primary 5">Primary 5 </option><option value="Primary 6">Primary 6 </option><option value="Form 1">Form 1 </option><option value="Form 2">Form 2 </option><option value="Form 3">Form 3 </option><option value="Form 4">Form 4 </option><option value="Form 5">Form 5 </option><option value="Form 6">Form 6 </option>';
+        document.getElementById('minmax').innerHTML = "Minimum Hourly Price Requested:"
+} })
+
+
+    document.forms["myForm"]["region"].addEventListener("change",sqlcomu);
+     document.forms["myForm"]["educationLevel"].addEventListener("change",sqlcomu);
+     document.forms["myForm"]["price"].addEventListener("change",sqlcomu);
+     document.forms["myForm"]["identity"].addEventListener("change",sqlcomu);
+
+  function sqlcomu(){
+    var a = document.forms["myForm"]["region"].value;
+    var b = document.forms["myForm"]["educationLevel"].value;
+    var c = document.forms["myForm"]["subject[]"];
+    var d = document.forms["myForm"]["time[]"];
+    var e = document.forms["myForm"]["price"].value;
+    var f = document.forms["myForm"]["identity"].value;
+
+
+    var txt = "";
+    var txt2 = "";
+    var txt3 ="";
+    var txt4 ="";
+    var txt5 ="";
+    
+    var i;
+    var sql = "";
+    var table = "";
+    var where = "";
+
+    if(f == "tutor"){
+      table = "tutorpost";
+    }else{
+      table = "stupost";
+    }
+
+    sql="SELECT * FROM "+table;
+    for (i = 0; i < c.length; i++) {
+      if (c[i].checked) {
+        if(txt ==""){
+           txt = "subject LIKE '%" +c[i].value+"%'";
+        }else{
+          txt += " AND ";
+          txt += "subject LIKE '%" +c[i].value+"%'";
+        }
+      }
+    }
+
+
+  for (i = 0; i < d.length; i++) {
+    if (d[i].checked) {
+        if(txt2 ==""){
+           txt2 = "day LIKE '%" +d[i].value+"%'";
+        }else{
+          txt2 += " AND ";
+          txt2 += "day LIKE '%" +d[i].value+"%'";
+        }
+    }
+  }
+
+
+  if(a != ""){
+    txt3 = "region = '"+a+"'";
+  }
+  if(b != ""){
+    txt4 = "edlevel = '"+b+"'";
+  }
+  if(f == "tutor" ){
+    txt5 = "price < " + e;
+  }else{
+    txt5 = "price > " + e;
+  }
+
+  if(txt != ""){
+    if(where == ""){
+      where = txt;
+    }else{
+      where += " AND ";
+      where += txt;
+    }
+  }
+  if(txt2 != ""){
+    if(where == ""){
+      where = txt2;
+    }else{
+      where += " AND ";
+      where += txt2;
+    }
+  }
+    if(txt3 != ""){
+    if(where == ""){
+      where = txt3;
+    }else{
+      where += " AND ";
+      where += txt3;
+    }
+  }
+    if(txt4 != ""){
+    if(where == ""){
+      where = txt4;
+    }else{
+      where += " AND ";
+      where += txt4;
+    }
+  }
+    if(txt5 != ""){
+    if(where == ""){
+      where = txt5;
+    }else{
+      where += " AND ";
+      where += txt5;
+    }
+  }
+  if(where != ""){
+    sql += " WHERE "+where;
+  }
+
+//alert(sql);
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "search.php?identity="+f+"&sql="+sql, true);
+  xhttp.send();
+}
+
+
+
+</script>
+
+</body>
+
+
+</html>
