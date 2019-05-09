@@ -172,13 +172,7 @@ $result2 = mysqli_query($conn,$sql);
 
     </div>
 
-    <div>
-      <h1>Recommendation</h1>
-   </div>
-
 </div>	
- <!--Students list from database-->
-
 
 <script>
 function openMenu() {

@@ -84,7 +84,7 @@ if($identity == "tutor"){
         echo '<tr>';
         echo '<td>';
         echo 'No result matched';
-        echo '</td></tr>';
+        echo '</td><td></td><td></td><td></td><td></td></tr>';
       }
       echo '</table></div>';
 
@@ -108,7 +108,7 @@ if($identity == "tutor"){
         echo '<tr>';
         echo '<td>';
         echo 'No result matched';
-        echo '</td></tr>';
+        echo '</td><td></td><td></td><td></td><td></td></tr>';
       }
       echo '</table></div>';
 }

@@ -156,7 +156,7 @@ $result = mysqli_query($conn,$sql);
 
     <div id = "pw" class="w3-container w3-center">
     <div class="w3-bar">    
-    <p> <a onclick = "" class="w3-bar-item w3-button  w3-round-large w3-green"> Change password </a></p>
+    <p> <a onclick = "Go()" class="w3-bar-item w3-button  w3-round-large w3-green"> Change password </a></p>
     </div>
     </div>
 </div>
@@ -173,7 +173,7 @@ $result2 = mysqli_query($conn,$sql);
 
 ?>
 
-<div style="width: 40% ;height:400px;overflow:auto;margin-right: 150px; margin-top: 20px; margin-bottom: 60px; position:relative;float: right">
+<div style="width: 45% ;height:400px;overflow:auto;margin-right: 100px; margin-top: 20px; margin-bottom: 60px; position:relative;float: right">
   <h3>Your Posts</h3>
     <table class="w3-table-all"  id="header-fixed">
       <thead>
@@ -184,6 +184,7 @@ $result2 = mysqli_query($conn,$sql);
         <th>Price Requested</th>
         <th>Subject</th>
         <th>State</th>
+        <th>Rated</th>
       </tr>
     </thead>
     <?php
@@ -205,6 +206,17 @@ $result2 = mysqli_query($conn,$sql);
         }else if($row['active'] == 0){
           echo'<td>Accepted</td>';
         }
+        if($row['rated'] == 1){
+          echo'<td>Rated</td>';
+        }else if($row['rated'] == 0){
+          if($row['active'] == 0 && $type == "student"){
+            echo'<td><a href=rate.php?type='.$type.'&pid='.$pid.'>Not rated</a></td>';
+          }else{
+             echo'<td>Not rated</td>';
+          }
+
+         
+        }
         echo '</tr>';
       }
 
@@ -217,7 +229,94 @@ $result2 = mysqli_query($conn,$sql);
 
 
 </div>	
- <!--Students list from database-->
+
+<?php 
+
+if($type == 'tutor'){
+  $sql = "SELECT * FROM `applysp` WHERE  applyuid = '$uid' ORDER BY applytime DESC ";
+}else if($type == 'student'){
+  $sql = "SELECT * FROM `applytp` WHERE  applyuid = '$uid' ORDER BY applytime DESC ";
+}
+
+$result2 = mysqli_query($conn,$sql);
+
+
+
+
+?>
+<div style="width: 45% ;height:400px;overflow:auto;margin-right: 100px; margin-top: 20px; margin-bottom: 60px; position:relative;float: right">
+  <h3>Applied Posts</h3>
+    <table class="w3-table-all"  id="header-fixed">
+      <thead>
+      <tr class="w3-blue">
+        <th>Region </th>
+        <th>Education level</th>
+        <th>Avalible Day</th>
+        <th>Price Requested</th>
+        <th>Subject</th>
+        <th>State</th>
+        <th>Rated</th>
+      </tr>
+    </thead>
+    <?php
+      while ($row2 = mysqli_fetch_assoc($result2)) {
+        # code...
+        if($type == 'tutor'){
+          $pid = $row2['spid'];
+          $sql = "SELECT * FROM `stupost` WHERE  spid = '$pid' ORDER BY posttime DESC ";
+        }else if($type == 'student'){
+          $pid = $row2['tpid'];
+          $sql = "SELECT * FROM `tutorpost` WHERE  tpid = '$pid' ORDER BY posttime DESC ";
+        }
+        $result3 = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result3);
+
+        if($type == 'tutor'){
+          $pid = $row['spid'];
+        }else if($type == 'student'){
+          $pid = $row['tpid'];
+        }
+        echo '<tr>';
+        if($type == 'tutor'){
+          echo'<td><a href=viewpost.php?type=student&pid='.$pid.'>'.$row['region'].'</a></td>';
+        }else{
+           echo'<td><a href=viewpost.php?type=tutor&pid='.$pid.'>'.$row['region'].'</a></td>';
+        }
+       
+        echo'<td>'. $row['edlevel'].'</td>';
+        echo'<td>'. $row['day'].'</td>';
+        echo'<td>'. $row['price'].'</td>';
+        echo'<td>'. $row['subject'].'</td>';
+        if($row['active'] == 1){
+          echo'<td>Unaccepted</td>';
+        }else if($row['active'] == 0){
+          echo'<td>Accepted</td>';
+        }
+        if($row['rated'] == 1){
+          echo'<td>Rated</td>';
+        }else if($row['rated'] == 0){
+          if($row['active'] == 0 && $type == "student"){
+            if($type =='tutor'){
+              echo'<td><a href=rate.php?type=student&pid='.$pid.'>Not rated</a></td>';
+            }else{
+             echo'<td><a href=rate.php?type=tutor&pid='.$pid.'>Not rated</a></td>';
+            }
+          }else{
+             echo'<td>Not rated</td>';
+          }
+
+         
+        }
+        echo '</tr>';
+      }
+
+    ?>
+    
+
+  </table>
+
+    </div>
+
 
 
 <script>
@@ -232,6 +331,10 @@ function closeMenu() {
   document.getElementById("Menu").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
 }
+function Go() {
+  window.location = "changepassword.php?";
+}
+
 </script>
 <script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
 <script>
