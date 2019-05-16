@@ -60,7 +60,7 @@ h1{
 
 	<div class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left" style="display:none" id="Menu">
   		<button onclick="closeMenu()" class="w3-bar-item w3-button w3-large">&times;</button>
-
+  		<a  href = "index.php" class="w3-bar-item w3-button w3-black "> <i class="fa fa-home"></i><i>Home Page</i></a>
 	 	<a  href = "contactus2.php" class="w3-bar-item w3-button w3-black "><i> Contact Us</i></a>
     <a  onclick = "goLogin()" class="w3-bar-item w3-button w3-black "><i> Login</i></a>
     <a  onclick = "goRegister()" class="w3-bar-item w3-button w3-black "><i> Register</i></a>
@@ -76,6 +76,7 @@ h1{
 
   <div class="w3-container w3-center"">
 	<div class="w3-bar">
+		<a  href = "index.php" class="w3-bar-item w3-button w3-black "> <i class="fa fa-home"></i><i></i></a>
 	 <a  href = "contactus2.php" class="w3-bar-item w3-button w3-black w3-round-large"><i> Contact Us</i></a>
    <a  onclick = "goLogin()" class="w3-bar-item w3-button w3-black "><i> Login</i></a>
     <a  onclick = "goRegister()" class="w3-bar-item w3-button w3-black "><i> Register</i></a>

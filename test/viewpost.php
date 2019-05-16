@@ -64,7 +64,7 @@ h1{
     <a  href = "loginhomepage.php" class="w3-bar-item w3-button w3-black "> <i class="fa fa-home"></i><i>Home Page</i></a>
   	<a  href = "personalpage.php" class="w3-bar-item w3-button w3-black "> <i>Personal Page</i></a>
 	 	<a  href = "prepost.php" class="w3-bar-item w3-button w3-black "><i> Upload</i> </a>
-	 	<a  href = "/chat" class="w3-bar-item w3-button w3-black "><i> Chat Room</i> </a>
+	 	<a  href = "chatroom.php" class="w3-bar-item w3-button w3-black "><i> Chat Room</i> </a>
 	 	<a  href = "search.html" class="w3-bar-item w3-button w3-black "><i> Search </i></a>
 	 	<a  href = "contactus.php" class="w3-bar-item w3-button w3-black "><i> Contact Us</i></a>
     <a  href = "logout.php" class="w3-bar-item w3-button w3-black "><i> Logout</i></a>
@@ -83,7 +83,7 @@ h1{
     <a  href = "loginhomepage.php" class="w3-bar-item w3-button w3-black "><i class="fa fa-home"></i></a>
   	 <a  href = "personalpage.php" class="w3-bar-item w3-button w3-black w3-round-large"> <i>Personal Page</i></a>
 	 <a  href = "prepost.php" class="w3-bar-item w3-button w3-black w3-round-large"><i> Upload</i> </a>
-	 <a  href = "/chat" class="w3-bar-item w3-button w3-black w3-round-large"><i> Chat Room</i> </a>
+	 <a  href = "chatroom.php" class="w3-bar-item w3-button w3-black w3-round-large"><i> Chat Room</i> </a>
 	 <a  href = "search.html" class="w3-bar-item w3-button w3-black w3-round-large"><i> Search </i></a>
 	 <a  href = "contactus.php" class="w3-bar-item w3-button w3-black w3-round-large"><i> Contact Us</i></a>
    <a  href = "logout.php" class="w3-bar-item w3-button w3-black "><i> Logout</i></a>
@@ -233,10 +233,18 @@ $result2 = mysqli_query($conn,$sql);
                   </div>';
                 }
           
-            
+            echo '<div class="w3-container w3-center">
+                  <div class="w3-bar">    
+                  <p> <a href="setchat.php?type='. $type . '&uid=' . $uid.' " class="w3-bar-item w3-button  w3-round-large w3-blue">Chat now</a></p>
+                  </div>
+                  </div>';
           }
 
+          
+
       ?>
+
+
     </div>
 
 

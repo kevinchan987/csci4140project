@@ -9,6 +9,9 @@ if(isset($_COOKIE['username'])){
 	setcookie('lastname','',time()-3600);
 	setcookie('identity','',time()-3600);
 }
+
+session_start();
+session_destroy();
 // redirect back to login page
 header('location: index.php');
 ?>

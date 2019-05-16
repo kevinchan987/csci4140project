@@ -71,7 +71,7 @@ form{
     <a  href = "loginhomepage.php" class="w3-bar-item w3-button w3-black "> <i class="fa fa-home"></i><i>Home Page</i></a>
   	<a  href = "personalpage.php" class="w3-bar-item w3-button w3-black "> <i>Personal Page</i></a>
 	 	<a  href = "prepost.php" class="w3-bar-item w3-button w3-black "><i> Upload</i> </a>
-	 	<a  href = "/chat" class="w3-bar-item w3-button w3-black "><i> Chat Room</i> </a>
+	 	<a  href = "chatroom.php" class="w3-bar-item w3-button w3-black "><i> Chat Room</i> </a>
 	 	<a  href = "search.html" class="w3-bar-item w3-button w3-black "><i> Search </i></a>
 	 	<a  href = "contactus.php" class="w3-bar-item w3-button w3-black "><i> Contact Us</i></a>
     <a  href = "logout.php" class="w3-bar-item w3-button w3-black "><i> Logout</i></a>
@@ -90,7 +90,7 @@ form{
     <a  href = "loginhomepage.php" class="w3-bar-item w3-button w3-black "><i class="fa fa-home"></i></a>
   	 <a  href = "personalpage.php" class="w3-bar-item w3-button w3-black w3-round-large"> <i>Personal Page</i></a>
 	 <a  href = "prepost.php" class="w3-bar-item w3-button w3-black w3-round-large"><i> Upload</i> </a>
-	 <a  href = "/chat" class="w3-bar-item w3-button w3-black w3-round-large"><i> Chat Room</i> </a>
+	 <a  href = "chatroom.php" class="w3-bar-item w3-button w3-black w3-round-large"><i> Chat Room</i> </a>
 	 <a  href = "search.html" class="w3-bar-item w3-button w3-black w3-round-large"><i> Search </i></a>
 	 <a  href = "contactus.php" class="w3-bar-item w3-button w3-black w3-round-large"><i> Contact Us</i></a>
    <a  href = "logout.php" class="w3-bar-item w3-button w3-black "><i> Logout</i></a>
@@ -204,7 +204,7 @@ $result = mysqli_query($conn,$sql);
     <div>
       <h3>Applied people<h3>
     </div>
-    <form name="myForm"  action = "target.php" onsubmit="Go()" method = "POST" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+    <form name="myForm"   method = "POST" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
 
       <div class="row">
       <div class="col-25">
@@ -220,6 +220,7 @@ $result = mysqli_query($conn,$sql);
             
             if($result2->num_rows != 0){
                 echo "<select required name = 'target'>";
+                 echo "<option value = ''></option>";
                 while ($row = mysqli_fetch_assoc($result2)) {
                   echo "<option value = ".$row['applyuid']. ">".$row['firstname'].' '.$row['lastname']."</option>";
                      
@@ -263,22 +264,28 @@ $result = mysqli_query($conn,$sql);
 
     if($result2->num_rows != 0){
     if($active == '1'){
-     
-      echo "<div id='input4' class='w3-container w3-center'>
+     ?>
+      <div id='input4' class='w3-container w3-center' style="margin-bottom: 50px;">
             <div class='w3-bar'>    
-            <p> <a onclick='Go()' name='accept' type='submit' class='w3-bar-item w3-button  w3-round-large w3-blue'>Accept</a></p>
+            <p> <a onclick="Go()" name='accept' type='submit' value="Accept" class='w3-bar-item w3-button  w3-round-large w3-blue'>Accept</a></p>
             </div>
-            </div>";
-      }
+            </div>
+   <?php   }
     }
     ?>
     
 
     </form>
+<?php
+if($active =="1"){
+?>
     </div>
-
+<div id="txtHint"  style="float: right;margin-right: 50px;width: 55%; height:400px;" >Applier information will be listed below...</div>
 
 </div>	
+<?php
+}
+?>
  <!--Students list from database-->
 
 
@@ -296,13 +303,15 @@ function closeMenu() {
 }
 
 function Go() {
-
   var a = document.forms["myForm"]["target"].value;
   var b = "<?php echo $type ?>";
   var c = "<?php echo $pid ?>";
+    if (a == "" ) {
+    alert("Select a target before submission");
+  }else{
   window.location = "accept.php?applyuid="+a+'&type='+ b +'&pid='+ c;
-  alert(d);
-
+//  alert(d);
+} 
 
 }
 function Cancel(){
@@ -315,6 +324,33 @@ function Cancel(){
 <script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
 <script>
 w3CodeColor();
+document.forms["myForm"]["target"].addEventListener("change",sqlcomu);
+
+  function sqlcomu(){
+  var b = document.forms["myForm"]["target"].value;
+ // alert(b== "");
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "userinfo.php?uid="+b, true);
+  xhttp.send();
+
+
+  }
+
+function validateForm() {
+  var a = document.forms["myForm"]["target"].value;
+alert("abc123");
+  alert(a=="");
+  if (a == "" ) {
+    alert("Select a target before submission");
+    return false;
+  }
+}
+
 </script>
 
 </body>
