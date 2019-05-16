@@ -8,51 +8,61 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <style>
-        body{background: url(b2.jpg);
-             background-color: #cccccc;
-            background-attachment: fixed;
-            overflow: hidden;
-            overflow-y:scroll;
-            overflow-x:scroll;
-            }
+<style>
+body{
+     background-color: DimGray;
+    text-align: center
+    
+    }
 
 
-    h1{ margin-left: auto; 
+h1{ margin-left: auto; 
     text-align:center;
- color:white;
- font-size: 50px;
+    color:white;
+    font-size: 40px;
     text-shadow: 4px 4px black;
- font-style: italic;
+    font-style: italic;
     font-variant: small-caps;
- font-family: 'Open Sans';}
+    font-family: arial;
+  }
 
  input[type=text], select, textarea, input[type=password] {
-    width: 100%;
+    width: 80%;
+    height: 60%
     padding: 12px;
     border: 2px solid #ccc;
     border-radius: 10px;
-    resize: vertical;
+    
+}
+input[type=radio]{
+margin-top: 5px;
 }
 
 input[type=submit]{
-    width: 100%;
+    width: 30%;
     padding: 12px;
     border: 2px solid #ccc;
     border-radius: 10px;
     resize: vertical;
-    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
 
 }
 
 label {
+    height: 70%
     padding: 15px 15px 15px 0;
     display: inline-block;
+}
+
+form{
+  display: inline-block;
+  width: 40%;
 }
 .col-25 {
     float: left;
     width: 25%;
-    margin-top: 6px;
+    margin-top: 10px;
 }
 
 .col-75 {
@@ -143,6 +153,12 @@ label {
 
     </form>
 
+    <div class="w3-container w3-center">
+    <div class="w3-bar">    
+    <p> <a onclick = "goHome()" class="w3-bar-item w3-button  w3-round-large"> Back to homepage </a></p>
+    </div>
+    </div>
+
 </body>
 <script>
 function validateForm() {
@@ -157,6 +173,11 @@ function validateForm() {
     alert("Form must be filled out");
     return false;
   }
+}
+
+
+function goHome(){
+        location.href = "index.php";
 }
 </script>
 </html>
